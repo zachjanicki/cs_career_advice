@@ -16,9 +16,8 @@ def resources():
 	"LeetCode": "https://leetcode.com/",
 	"Project Euler": "https://projecteuler.net/"
 
-
 	}
-	return render_template("resources.html")
+	return render_template("resources.html", coding_question_sites = coding_question_sites)
 
 @app.route('/interview-questions/')
 def interview_questions():
