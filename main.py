@@ -56,16 +56,16 @@ def interview_question_section_main(question_type):
 
 	elif question_type == "Recursion-and-Dynamic-Programming":
 		section_title = "Recursion and Dynamic Programming"
-		questions = ["Fibonacci Sequence", "Steps to Top", "Tower of Hanoi", "Max Path Grid", "Pot of Gold"]
+		questions = ["Fibonacci Sequence", "N Step Problem", "Tower of Hanoi", "Max Path Grid", "Pot of Gold"]
 	elif question_type == "Graphs":
 		section_title = "Graphs"
-		questions = ["Insert into binary search tree", "Delete from binary search tree", "Level Order Traversal"]
-	elif question_type == "LinkedLists":
+		questions = ["Insert into Binary Search Tree", "Delete from Binary Search Tree", "Level Order Traversal"]
+	elif question_type == "Linked-Lists":
 		section_title = "Linked Lists"
-		questions = ["Reverse a Linked List", "Detect a cycle"]
+		questions = ["Reverse a Linked List", "Detect a Cycle"]
 	elif question_type == "Sorting":
 		section_title = "Sorting"
-		questions = ["Sort a linked list", "Merge Sort", "Quick Sort", "Radix Sort" ]
+		questions = ["Sort a Linked List", "Merge Sort", "Quick Sort", "Radix Sort" ]
 
 	elif question_type == "Search":
 		section_title = "Search"
@@ -78,30 +78,15 @@ def interview_question_section_main(question_type):
 
 @app.route('/interview-questions/<question_type>/<question>')
 def question(question_type, question):
-	question = question.replace("-", " ")
-	return render_template("question.html", question = question)
+	"""
+	Specific interview question pages genereted here
+	This will create the question title and path to the html page for a specific question that will be 
+	inserted into question.html
 
-
-# @app.route('/interview-questions/recursion-and-DP')
-# def recursion_and_DP():
-# 	return render_template("recursionAndDP.html")
-#
-# @app.route('/interview-questions/graphs')
-# def graphs():
-# 	return render_template("graphs.html")
-#
-# @app.route("/interview-questions/LinkedLists")
-# def LinkedLists():
-# 	return render_template("LinkedLists.html")
-#
-# @app.route("/interview-questions/sorting")
-# def Sorting():
-# 	return render_template("sorting.html")
-#
-# @app.route("/interview-questions/search")
-# def Search():
-# 	return render_template("search.html")
-
+	"""
+	question_title = question.replace("-", " ")
+	question_path = "questions/{}/{}.html".format(question_type, question)
+	return render_template("question.html", question_title = question_title, question_path = question_path)
 
 @app.route('/grad-school/')
 def grad_school():

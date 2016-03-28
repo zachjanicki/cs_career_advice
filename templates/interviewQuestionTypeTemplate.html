@@ -3,13 +3,11 @@
 {% extends "layout.html" %}
 {% block content %}
 <h2 align = "center"> {{section_title}} <h3>
-    <ul class="list-group">
-        {% for i in range(num_questions) %}
-        <li class="list-group-item">
-            <a href = "/interview-questions/{{question_type}}/{{url_question_titles[i]}}">  {{questions[i]}} </a>
-        </li>
-        {% endfor %}
-    </ul>
-
-
+<ul class="list-group">
+    {% for i in range(num_questions) %}
+    <li class="list-group-item">
+        <a href = "/interview-questions/{{question_type}}/{{url_question_titles[i]}}">  {{questions[i]}} </a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
