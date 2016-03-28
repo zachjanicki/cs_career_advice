@@ -5,6 +5,10 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
+@app.route('/firstInternship/')
+def firstInternship():
+	return render_template('firstInternship.html')
+
 @app.route('/Advice-By-Year=<year>')
 def advice_by_year(year):
 	return render_template(year + "Advice.html", year = year)
@@ -14,10 +18,31 @@ def resources():
 	coding_question_sites = {
 	"HackerRank": "https://www.hackerrank.com/",
 	"LeetCode": "https://leetcode.com/",
-	"Project Euler": "https://projecteuler.net/"
+	"Project Euler": "https://projecteuler.net/",
+	"CodeFights": "https://codefights.com/home"
+	}
+	Tutorials = {
+		"Learning Python The Hardway": "http://learnpythonthehardway.org/book/"
 
 	}
-	return render_template("resources.html", coding_question_sites = coding_question_sites)
+	Readings = {
+	"Advice from Tim Connors":"https://docs.google.com/document/d/1Ni0deBDKRRWgb5xHY748Ptw6AHhw8Z3mg6LMDFOiAHw/edit",
+	"5 Essential Interview Questions": "https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions",
+	"Hacking a Google Interview":"https://courses.csail.mit.edu/iap/interview/materials.php"
+	}
+
+	Other = {
+	"28 interview questions": "http://www.ardendertat.com/2012/01/09/programming-interview-questions/",
+	"Getting a Gig: A Guide": "https://github.com/cassidoo/getting-a-gig"
+	}
+
+	Books = {
+	"Cracking the coding interview": "http://www.amazon.com/Cracking-Coding-Interview-6th-Edition/dp/0984782850/ref=dp_ob_title_bk",
+	"Data Structure and Algorithmic Thinking with Python": "http://www.amazon.com/Data-Structure-Algorithmic-Thinking-Python/dp/8192107590"
+	}
+
+	return render_template("resources.html", coding_question_sites = coding_question_sites, Books = Books,
+	Tutorials=Tutorials, Readings = Readings, Other = Other)
 
 @app.route('/interview-questions/')
 def interview_questions():
@@ -34,6 +59,18 @@ def recursion_and_DP():
 @app.route('/interview-questions/graphs')
 def graphs():
 	return render_template("graphs.html")
+
+@app.route("/interview-questions/LinkedLists")
+def LinkedLists():
+	return render_template("LinkedLists.html")
+
+@app.route("/interview-questions/sorting")
+def Sorting():
+	return render_template("sorting.html")
+
+@app.route("/interview-questions/search")
+def Search():
+	return render_template("search.html")
 
 
 @app.route('/grad-school/')

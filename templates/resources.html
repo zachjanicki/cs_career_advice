@@ -10,12 +10,55 @@
         <a href = "{{coding_question_sites[site]}}" target="_blank"> {{site}} </a>
     </li>
 {% endfor %}
+<br>
+<br>
+
+
 
 <h4 style="padding-left: 2%"> Readings </h4>
 <ul class="list-group">
+{% for reading in Readings %}
 	<li class="list-group-item">
-		<a href="https://docs.google.com/document/d/1Ni0deBDKRRWgb5xHY748Ptw6AHhw8Z3mg6LMDFOiAHw/edit" target="_blank"> Advice from Tim Connors </a> 
-		<p> - Tons of great links. Look towards the end at the facebook section which has several resources for technical interviews and general advice on the hiring process. </p> 
+		<a href="{{Readings[reading]}}" target="_blank"> {{reading}} </a>
+        {% if reading == "Advice from Tim Connors" %}
+            <p>  &nbsp; &nbsp; Tons of great links. Look towards the end at the facebook section which has several resources for technical interviews and general advice on the hiring process. </p>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+<br>
+<br>
+
+<h4 style="padding-left: 2%"> Tutorials </h4>
+<ul class="list-group">
+{% for tutorial in Tutorials %}
+	<li class="list-group-item">
+		<a href="{{Tutorials[tutorial]}}" target="_blank"> {{tutorial}} </a>
+    </li>
+{% endfor %}
+</ul>
+<br>
+<br>
+
+<h4 style="padding-left: 2%"> Books </h4>
+<ul class="list-group">
+{% for book in Books %}
+	<li class="list-group-item">
+		<a href="{{Books[book]}}" target="_blank"> {{book}} </a>
+    </li>
+{% endfor %}
+</ul>
+<br>
+<br>
+
+<h4 style="padding-left: 2%"> Other </h4>
+<ul class="list-group">
+{% for resource in Other %}
+	<li class="list-group-item">
+		<a href="{{Other[resource]}}" target="_blank"> {{resource}} </a>
+    </li>
+{% endfor %}
+</ul>
 
 
 {% endblock %}
