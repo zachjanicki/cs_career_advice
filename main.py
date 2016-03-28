@@ -48,29 +48,59 @@ def resources():
 def interview_questions():
 	return render_template("interviewQuestions.html")
 
-@app.route('/interview-questions/Strings-And-Arrays')
-def strings_and_arrays_questions():
-	return render_template("StringsAndArrays.html")
+@app.route('/interview-questions/<question_type>')
+def interview_question_section_main(question_type):
+	if question_type == "Strings-And-Arrays":
+		section_title = "Strings And Arrays"
+		questions = ["Reverse a String", "String to Int", "Word Frequency", "Find Missing Element"]
 
-@app.route('/interview-questions/recursion-and-DP')
-def recursion_and_DP():
-	return render_template("recursionAndDP.html")
+	elif question_type == "Recursion-and-Dynamic-Programming":
+		section_title = "Recursion and Dynamic Programming"
+		questions = ["Fibonacci Sequence", "Steps to Top", "Tower of Hanoi", "Max Path Grid", "Pot of Gold"]
+	elif question_type == "Graphs":
+		section_title = "Graphs"
+		questions = ["Insert into binary search tree", "Delete from binary search tree", "Level Order Traversal"]
+	elif question_type == "LinkedLists":
+		section_title = "Linked Lists"
+		questions = ["Reverse a Linked List", "Detect a cycle"]
+	elif question_type == "Sorting":
+		section_title = "Sorting"
+		questions = ["Sort a linked list", "Merge Sort", "Quick Sort", "Radix Sort" ]
 
-@app.route('/interview-questions/graphs')
-def graphs():
-	return render_template("graphs.html")
+	elif question_type == "Search":
+		section_title = "Search"
+		questions = ["Binary Search"]
 
-@app.route("/interview-questions/LinkedLists")
-def LinkedLists():
-	return render_template("LinkedLists.html")
+	num_questions = len(questions)
+	url_question_titles = [question.replace(" ", "-") for question in questions]
+	return render_template("interviewQuestionTypeTemplate.html",url_question_titles = url_question_titles,
+	question_type = question_type, section_title = section_title, num_questions = num_questions,questions = questions)
 
-@app.route("/interview-questions/sorting")
-def Sorting():
-	return render_template("sorting.html")
+@app.route('/interview-questions/<question_type>/<question>')
+def question(question_type, question):
+	question = question.replace("-", " ")
+	return render_template("question.html", question = question)
 
-@app.route("/interview-questions/search")
-def Search():
-	return render_template("search.html")
+
+# @app.route('/interview-questions/recursion-and-DP')
+# def recursion_and_DP():
+# 	return render_template("recursionAndDP.html")
+#
+# @app.route('/interview-questions/graphs')
+# def graphs():
+# 	return render_template("graphs.html")
+#
+# @app.route("/interview-questions/LinkedLists")
+# def LinkedLists():
+# 	return render_template("LinkedLists.html")
+#
+# @app.route("/interview-questions/sorting")
+# def Sorting():
+# 	return render_template("sorting.html")
+#
+# @app.route("/interview-questions/search")
+# def Search():
+# 	return render_template("search.html")
 
 
 @app.route('/grad-school/')
