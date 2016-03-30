@@ -62,7 +62,7 @@ def interview_question_section_main(question_type):
 		questions = ["Insert into Binary Search Tree", "Delete from Binary Search Tree", "Level Order Traversal"]
 	elif question_type == "Linked-Lists":
 		section_title = "Linked Lists"
-		questions = ["Reverse a Linked List", "Detect a Cycle"]
+		questions = ["Reverse a Linked List", "Detect a Cycle", "Delete Node"]
 	elif question_type == "Sorting":
 		section_title = "Sorting"
 		questions = ["Sort a Linked List", "Merge Sort", "Quick Sort", "Radix Sort" ]
