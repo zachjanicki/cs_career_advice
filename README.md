@@ -30,7 +30,8 @@ We want as many people as possible to contribute to this site. Thus, we've layed
 2) Add an interview answer:
 -   Too add an interview answer, navigate to templates/questions and choose the directory that matches the category of the question you'd like to answer. Then, edit the html document for your question. 
 
-3) Add advice to freshman/sophomores/juniors/seniors:
+#####  Advice by Year
+1) Add advice to freshman/sophomores/juniors/seniors:
 -   Simply submit a pull request with the edits to the appropriate html document. 
 
 ####  Design
